@@ -56,16 +56,29 @@ Then run the notebooks in order.
 
 ## Physics background
 
-Gravitational waves are ripples in spacetime produced by accelerating masses. For a compact binary system, the strain amplitude is:
+### What are gravitational waves?
+Einstein's theory of General Relativity tells us that mass warps the fabric of spacetime — like a bowling ball sitting on a stretched rubber sheet. When massive objects accelerate, they create ripples in this fabric that travel outward at the speed of light. These ripples are gravitational waves.
 
-h ~ (G Mc / c²)^(5/3) (π f)^(2/3) / (c² d)
+For two black holes orbiting each other, they continuously radiate energy away as gravitational waves. This causes their orbit to shrink, making them orbit faster and faster, which produces even stronger waves — a runaway process that ends in a violent merger. The gravitational wave signal from this process is called a **chirp** because if you converted it to sound, it would sweep upward in pitch like a bird chirping.
 
-where Mc is the chirp mass and d is the luminosity distance. The matched filter cross-correlates a theoretical template h(t) with the detector strain s(t), weighted by the noise PSD S(f):
+### How small is the signal?
+GW150914 stretched and squeezed the 4km LIGO detector arms by less than 1/1000th the width of a proton. The strain h — a dimensionless measure of this stretching — is defined as:
 
-SNR(t) = |∫ s̃(f) h̃*(f) / S(f) e^(2πift) df| / σ
+**h = ΔL / L**
 
-The SNR peaks when the template best matches the signal buried in the data.
+where ΔL is the change in length and L is the arm length. For GW150914, h ~ 10⁻²¹. This is why detecting gravitational waves took 100 years after Einstein predicted them — the signal is almost incomprehensibly small.
 
+### What is the chirp mass?
+The shape of the gravitational wave signal depends on the masses of the two objects. Specifically, it depends on a special combination of the two masses called the **chirp mass**:
+
+**Mc = (m₁ m₂)^(3/5) / (m₁ + m₂)^(1/5)**
+
+The chirp mass is the single most important quantity we can measure from a gravitational wave signal — it controls how fast the frequency sweeps upward. For GW150914, Mc ≈ 28.3 solar masses.
+
+### What is matched filtering?
+The gravitational wave signal is completely buried in noise — like trying to hear someone whisper in a thunderstorm. Matched filtering is the technique that pulls it out.
+
+The idea is simple: if you know the shape of the signal you're looking for, you can slide a copy of it (called a **template**) across the noisy data and ask "how well does this template match the data right now?" Mathematically this is a cross-correlation — when the template lines up with the real signal hiding in the noise, the
 ---
 
 ## References
