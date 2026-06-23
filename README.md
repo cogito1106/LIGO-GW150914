@@ -78,7 +78,15 @@ The chirp mass is the single most important quantity we can measure from a gravi
 ### What is matched filtering?
 The gravitational wave signal is completely buried in noise — like trying to hear someone whisper in a thunderstorm. Matched filtering is the technique that pulls it out.
 
-The idea is simple: if you know the shape of the signal you're looking for, you can slide a copy of it (called a **template**) across the noisy data and ask "how well does this template match the data right now?" Mathematically this is a cross-correlation — when the template lines up with the real signal hiding in the noise, the
+The idea is simple: if you know the shape of the signal you're looking for, you can slide a copy of it (called a **template**) across the noisy data and ask "how well does this template match the data right now?" Mathematically this is a cross-correlation — when the template lines up with the real signal hiding in the noise, the correlation spikes. That spike is your detection.We do this in the frequency domain because it's much faster. The matched filter SNR (signal-to-noise ratio) is:
+
+**SNR(t) = |∫ s̃(f) h̃*(f) / S(f) e^(2πift) df| / σ**
+
+In plain English: multiply the data (s̃) by the template (h̃*) at each frequency, down-weight noisy frequencies by dividing by the noise power S(f), then Fourier transform back to find when the match is strongest. A detection is declared when SNR > 8 in multiple detectors simultaneously.
+
+### Why two detectors?
+A single detector can't tell a real gravitational wave from a local noise event (a truck driving past, an earthquake, etc). Having two detectors separated by 3000km means a real gravitational wave — travelling at the speed of light — must arrive at both detectors within 10ms of each other. A noise event at one site won't appear at the other. GW150914 arrived at Hanford 6.9ms before Livingston, consistent with the known speed of light — confirming it was real.
+
 ---
 
 ## References
