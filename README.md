@@ -80,7 +80,7 @@ The gravitational wave signal is completely buried in noise — like trying to h
 
 The idea is simple: if you know the shape of the signal you're looking for, you can slide a copy of it (called a **template**) across the noisy data and ask "how well does this template match the data right now?" Mathematically this is a cross-correlation — when the template lines up with the real signal hiding in the noise, the correlation spikes. That spike is your detection.We do this in the frequency domain because it's much faster. The matched filter SNR (signal-to-noise ratio) is:
 
-**SNR(t) = |∫ s̃(f) h̃*(f) / S(f) e^(2πift) df| / σ**
+$$\text{SNR}(t) = \frac{\left| \int \frac{\tilde{s}(f) \tilde{h}^*(f)}{S_n(f)} e^{2\pi i f t} df \right|}{\sigma}$$
 
 In plain English: multiply the data (s̃) by the template (h̃*) at each frequency, down-weight noisy frequencies by dividing by the noise power S(f), then Fourier transform back to find when the match is strongest. A detection is declared when SNR > 8 in multiple detectors simultaneously.
 
